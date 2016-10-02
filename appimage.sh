@@ -53,12 +53,6 @@ copy_deps
 # https://github.com/probonopd/AppImages/blob/master/excludelist
 delete_blacklisted
 
-# We don't bundle the developer stuff
-rm -rf usr/include || true
-rm -rf usr/lib/cmake || true
-rm -rf usr/lib/pkgconfig || true
-find . -name '*.la' | xargs -i rm {}
-strip usr/bin/* usr/lib/* || true
 rm -rf app/ || true
 
 ########################################################################
