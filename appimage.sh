@@ -30,12 +30,13 @@ BINARY=$(find /app/bin/ -name emacs*  -type f -executable | head -n 1)
 sed -i -e 's|/app|././|g' $BINARY
 
 cp -r /app/* ./usr/
+BINARY=$(find ./usr/bin/ -name emacs*  -type f -executable | head -n 1)
 
 ########################################################################
 # Copy desktop and icon file to AppDir for AppRun to pick them up
 ########################################################################
 
-cp ../../AppRun . ; chmod a+x ./AppRun
+find $HOME -name AppRun -type f -exec cp {} . \; ; chmod a+x ./AppRun
 get_desktop
 get_icon
 
