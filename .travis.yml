@@ -3,7 +3,7 @@ dist: trusty
 sudo: true
 
 env:
-  - RELEASE_VERSION=22.1
+  - RELEASE_VERSION=24.1
   - RELEASE_VERSION=25.1
   
 script:
