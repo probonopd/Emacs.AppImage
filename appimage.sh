@@ -6,8 +6,6 @@
 # For more information, see http://appimage.org/
 ########################################################################
 
-find /app
-
 export ARCH=$(arch)
 
 APP=Emacs
