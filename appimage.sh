@@ -36,7 +36,7 @@ BINARY=$(find ./usr/bin/ -name emacs*  -type f -executable | head -n 1)
 # Copy desktop and icon file to AppDir for AppRun to pick them up
 ########################################################################
 
-find $HOME -name AppRun -type f -exec cp {} . \; ; chmod a+x ./AppRun
+wget -c "https://raw.githubusercontent.com/probonopd/Emacs.AppImage/master/AppRun" ; chmod a+x ./AppRun
 get_desktop
 get_icon
 
@@ -84,11 +84,11 @@ sed -i -e 's|/usr|././|g' $BINARY
 sed -i -e 's|/app|././|g' $BINARY
 mkdir -p usr/local
 ( cd usr/local/ ; ln -s ../share/ . )
-mv etc/ e
-sed -i -e 's|/etc|../e|g' $BINARY
-sed -i -e 's|/etc|../e|g' ./usr/share/emacs/site-lisp/debian-startup.el
-sed -i -e 's|/usr|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
-sed -i -e 's|/app|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
+# mv etc/ e
+# sed -i -e 's|/etc|../e|g' $BINARY
+# sed -i -e 's|/etc|../e|g' ./usr/share/emacs/site-lisp/debian-startup.el
+# sed -i -e 's|/usr|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
+# sed -i -e 's|/app|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
 
 ########################################################################
 # AppDir complete
