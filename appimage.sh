@@ -79,9 +79,15 @@ VERSION=git$GIT_REV-glibc$GLIBC_NEEDED
 # Patch away absolute paths; it would be nice if they were relative
 ########################################################################
 
-# patch_usr
-# Possibly need to patch additional hardcoded paths away, replace
-# "/usr" with "././" which means "usr/ in the AppDir"
+sed -i -e 's|/usr|././|g' $BINARY
+sed -i -e 's|/app|././|g' $BINARY
+mkdir -p usr/local
+( cd usr/local/ ; ln -s ../share/ . )
+mv etc/ e
+sed -i -e 's|/etc|../e|g' $BINARY
+sed -i -e 's|/etc|../e|g' ./usr/share/emacs/site-lisp/debian-startup.el
+sed -i -e 's|/usr|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
+sed -i -e 's|/app|././|g' ./usr/share/emacs/site-lisp/debian-startup.el
 
 ########################################################################
 # AppDir complete
