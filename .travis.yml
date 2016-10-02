@@ -12,4 +12,5 @@ script:
   - make
   - sudo make install
   - cd ..
+  - sudo apt-get -y install squashfs-tools
   - bash -ex appimage.sh
