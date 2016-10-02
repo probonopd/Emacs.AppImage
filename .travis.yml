@@ -9,7 +9,7 @@ script:
   - sudo apt-get build-dep emacs24
   - ./autogen.sh
   - ./configure --prefix=/app
-  - make                           # if that fails: make bootstrap
+  - make
   - sudo make install
   - cd ..
   - bash -ex appimage.sh
