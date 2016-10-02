@@ -3,8 +3,9 @@ dist: trusty
 sudo: true
 
 script:
-  - git clone git://git.savannah.gnu.org/emacs.git
-  - cd emacs
+  - wget -c "http://ftpmirror.gnu.org/emacs/emacs-25.1.tar.gz"
+  - tar xf emacs-*tar.gz
+  - cd emacs*
   - sudo apt-get build-dep emacs24
   - ./autogen.sh
   - ./configure --prefix=/app
