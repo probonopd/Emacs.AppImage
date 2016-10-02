@@ -80,8 +80,13 @@ VERSION=git$GIT_REV-glibc$GLIBC_NEEDED
 
 sed -i -e 's|/usr|././|g' $BINARY
 sed -i -e 's|/app|././|g' $BINARY
-mkdir -p usr/local
-( cd usr/local/ ; ln -s ../share/ . )
+
+########################################################################
+# Other Emacs-specific finishing touches
+########################################################################
+
+( cd usr/bin/ ; ln -s emacs-* emacs )
+
 # mv etc/ e
 # sed -i -e 's|/etc|../e|g' $BINARY
 # sed -i -e 's|/etc|../e|g' ./usr/share/emacs/site-lisp/debian-startup.el
