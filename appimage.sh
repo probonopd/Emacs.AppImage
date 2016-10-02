@@ -95,7 +95,7 @@ sed -i -e 's|/app|././|g' $BINARY
 cd .. # Go out of AppImage
 
 mkdir -p ../out/
-generate_appimage
+generate_type2_appimage
 
 ########################################################################
 # Upload the AppDir
