@@ -2,8 +2,12 @@ language: C
 dist: trusty
 sudo: true
 
+env:
+  - RELEASE_VERSION=22.1
+  - RELEASE_VERSION=25.1
+  
 script:
-  - wget -c "http://ftpmirror.gnu.org/emacs/emacs-25.1.tar.gz"
+  - wget -c "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
   - tar xf emacs-*tar.gz
   - cd emacs*
   - sudo apt-get build-dep emacs24
