@@ -2,4 +2,4 @@
 
 This repository builds GNU Emacs on [Travis CI](http://travis-ci.org/) and packages it as an [AppImage](http://appimage.org/).
 
-The AppImage can be downloaded from the [Releases](https://github.com/probonopd/Emacs.AppImage/releases/) page.
+The AppImage can be downloaded from the [Releases](https://github.com/probonopd/Emacs.AppImage/releases/) page. It should run on most x86_64 Linux distributions with glibc 2.17 or later, which should be most distributions from 2014 and later.
