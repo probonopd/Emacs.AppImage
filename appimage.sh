@@ -35,7 +35,7 @@ cp -r /app/* ./usr/
 # Copy desktop and icon file to AppDir for AppRun to pick them up
 ########################################################################
 
-get_apprun
+cp ../../AppRun . ; chmod a+x ./AppRun
 get_desktop
 get_icon
 
