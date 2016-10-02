@@ -1,0 +1,12 @@
+language: C
+dist: trusty
+sudo: true
+
+script:
+  - git clone git://git.savannah.gnu.org/emacs.git
+  - cd emacs
+  - sudo apt-get build-dep emacs24
+  - ./autogen.sh
+  - ./configure --prefix=/app
+  - make                           # if that fails: make bootstrap
+  - sudo make install
