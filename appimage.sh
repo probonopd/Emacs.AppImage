@@ -85,7 +85,7 @@ sed -i -e 's|/app|././|g' $BINARY
 # Other Emacs-specific finishing touches
 ########################################################################
 
-( cd usr/bin/ ; ln -s emacs-* emacs )
+( cd usr/bin/ ; rm emacs ; ln -s emacs-* emacs )
 
 # mv etc/ e
 # sed -i -e 's|/etc|../e|g' $BINARY
