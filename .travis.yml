@@ -10,6 +10,7 @@ script:
   - tar xf emacs-*tar.gz
   - cd emacs*
   - sudo apt-get build-dep emacs24
+  - sudo apt-get -y remove libselinux-dev
   - ./autogen.sh
   - ./configure --prefix=/app
   - make
