@@ -12,7 +12,7 @@ script:
   - sudo apt-get build-dep emacs24
   - sudo apt-get -y remove libselinux-dev
   - ./autogen.sh
-  - ./configure --prefix=/app --without-selinux
+  - ./configure --prefix=/app --without-selinux --with-x-toolkit=gtk2
   - make
   - sudo make install
   - cd ..
