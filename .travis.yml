@@ -12,7 +12,7 @@ script:
   - sudo apt-get build-dep emacs24
   - sudo apt-get -y install libgtk-3-dev libwebkitgtk-3.0-dev
   - ./autogen.sh
-  - ./configure --prefix=/app --without-selinux --with-cairo --with-xwidgets --with-x-toolkit=gtk3
+  - ./configure --prefix=/app --without-selinux --with-cairo --with-x-toolkit=gtk3
   - make
   - sudo make install
   - cd ..
