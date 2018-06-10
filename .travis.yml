@@ -20,9 +20,9 @@ script:
   - bash -ex appimage.sh
   
 after_success:
-  - ls -lh ../../out/* # Assuming you have some files in out/ that you would like to upload
+  - readlink -f .
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh ../../out/*AppImage*
+  - bash upload.sh /home/travis/out/*.AppImage*
 
 branches:
   except:
