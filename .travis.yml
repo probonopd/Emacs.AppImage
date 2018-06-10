@@ -21,7 +21,7 @@ script:
   
 after_success:
   - ls -lh out/* # Assuming you have some files in out/ that you would like to upload
-  - bash upload.sh out/*AppImage*
+  - bash upload.sh ../out/*AppImage*
 
 branches:
   except:
