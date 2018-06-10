@@ -18,3 +18,12 @@ script:
   - cd ..
   - sudo apt-get -y install squashfs-tools
   - bash -ex appimage.sh
+  
+after_success:
+  - ls -lh out/* # Assuming you have some files in out/ that you would like to upload
+  - bash upload.sh out/*AppImage*
+
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
