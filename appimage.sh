@@ -66,7 +66,7 @@ get_desktopintegration $LOWERAPP
 ########################################################################
 
 GLIBC_NEEDED=$(glibc_needed)
-VERSION=${RELEASE_VERSION}-glibc$GLIBC_NEEDED
+VERSION=${RELEASE_VERSION}
 
 ########################################################################
 # Patch away absolute paths; it would be nice if they were relative
@@ -92,14 +92,9 @@ sed -i -e 's|/app|././|g' $BINARY
 # Now packaging it as an AppImage
 ########################################################################
 
-cd .. # Go out of AppImage
+cd .. # Go out of AppDir
 
 mkdir -p ../out/
 generate_type2_appimage
 
-########################################################################
-# Upload the AppDir
-########################################################################
-
-transfer ../out/*
-echo "AppImage has been uploaded to the URL above; use something like GitHub Releases for permanent storage"
+readlink -f ../out/*.AppImage*
