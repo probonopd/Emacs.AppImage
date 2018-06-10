@@ -22,7 +22,7 @@ script:
 after_success:
   - readlink -f .
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh /home/travis/out/*.AppImage*
+  - bash upload.sh ../../../out/*.AppImage*
 
 branches:
   except:
