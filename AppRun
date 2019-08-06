@@ -8,4 +8,4 @@ export EMACSDATA=$EMACSPATH/etc
 export EMACSDOC=$EMACSPATH/etc
 export EMACSLOADPATH=$EMACSPATH/site-lisp:$EMACSPATH/lisp:$EMACSPATH/lisp/emacs-lisp
 export INFOPATH=./local/share/info
-"${HERE}"/usr/bin/emacs*.wrapper "$@"
+"${HERE}"/usr/bin/emacs "$@"
