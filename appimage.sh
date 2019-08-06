@@ -56,12 +56,6 @@ delete_blacklisted
 rm -rf app/ || true
 
 ########################################################################
-# desktopintegration asks the user on first run to install a menu item
-########################################################################
-
-get_desktopintegration $LOWERAPP
-
-########################################################################
 # Determine the version of the app; also include needed glibc version
 ########################################################################
 
