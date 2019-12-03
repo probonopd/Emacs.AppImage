@@ -15,6 +15,7 @@ script:
   - ./configure --prefix=/usr --without-selinux --with-x-toolkit=gtk3
   - make -j$(nproc)
   - make install DESTDIR=$(readlink -f appdir) ; find appdir/
+  - cp appdir/usr/share/icons/hicolor/128x128/apps/emacs.png appdir/
   - wget -c -nv https://github.com/$(wget -q https://github.com/probonopd/go-appimage/releases -O - | grep "appimagetool-.*-x86_64.AppImage" | head -n 1 | cut -d '"' -f 2)
   - chmod +x ./appimagetool-*.AppImage
   - ./appimagetool-*.AppImage deploy appdir/usr/share/applications/*.desktop
