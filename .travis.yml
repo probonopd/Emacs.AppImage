@@ -12,17 +12,13 @@ script:
   - sudo apt-get build-dep emacs24
   - sudo apt-get -y install libgtk-3-dev libwebkitgtk-3.0-dev
   - ./autogen.sh
-  - ./configure --prefix=/app --without-selinux --with-x-toolkit=gtk3
+  - ./configure --prefix=/usr --without-selinux --with-x-toolkit=gtk3
   - make -j$(nproc)
-  - sudo make install
-  - cd ..
-#  - sudo apt-get -y install squashfs-tools
-  - bash -ex appimage.sh
-  
-after_success:
-  - readlink -f .
-  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh ../../../out/*.AppImage*
+  - make install DESTDIR=$(readlink -f appdir) ; find appdir/
+  - wget -c -nv https://github.com/$(wget -q https://github.com/probonopd/go-appimage/releases -O - | grep "appimagetool-.*-x86_64.AppImage" | head -n 1 | cut -d '"' -f 2)
+  - chmod +x ./appimagetool-*.AppImage
+  - ./appimagetool-*.AppImage deploy appdir/usr/share/applications/*.desktop
+  - ./appimagetool-*.AppImage appdir/
 
 branches:
   except:
