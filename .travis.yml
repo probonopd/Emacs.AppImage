@@ -20,6 +20,9 @@ script:
   - chmod +x ./appimagetool-*.AppImage
   - file appdir/usr/bin/emacs-*
   - ./appimagetool-*.AppImage deploy appdir/usr/share/applications/*.desktop
+  - sed -i -e 's|/usr|././|g' appdir/usr/bin/emacs*
+  - sed -i -e 's|/app|././|g' appdir/usr/bin/emacs*
+  - ( cd appdir/usr/bin/ ; rm emacs ; ln -s emacs-* emacs )
   - ./appimagetool-*.AppImage appdir/
 
 branches:
