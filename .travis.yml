@@ -2,11 +2,9 @@ language: C
 dist: trusty
 sudo: true
 
-env:
-  - RELEASE_VERSION=$(wget -q "https://ftp.gnu.org/pub/gnu/emacs/?C=M;O=D" -O - | grep -oe ">emacs-.*tar.gz" | head -n 1 | cut -d - -f 2 | sed -e 's|.tar.gz||g')
-  
 script:
-  - wget -c "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
+  - export VERSION=$(wget -q "https://ftp.gnu.org/pub/gnu/emacs/?C=M;O=D" -O - | grep -oe ">emacs-.*tar.gz" | head -n 1 | cut -d - -f 2 | sed -e 's|.tar.gz||g')
+  - wget -c "http://ftpmirror.gnu.org/emacs/emacs-${VERSION}.tar.gz"
   - tar xf emacs-*tar.gz
   - cd emacs*/
   - sudo apt-get build-dep emacs24
