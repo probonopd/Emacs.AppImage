@@ -21,6 +21,8 @@ script:
   - sed -i -e 's|/usr|././|g' appdir/usr/bin/emacs*
   - sed -i -e 's|/app|././|g' appdir/usr/bin/emacs*
   - ( cd appdir/usr/bin/ ; rm emacs ; ln -s emacs-* emacs )
+  - rm -rf appdir/usr/share/metainfo # FIXME; let it in once we can validate it
+  - LD_LIBRARY_PATH='' find appdir -type f -exec ldd {} 2>&1 \; | grep '=>' | grep -v appdir
   - ./appimagetool-*.AppImage appdir/
 
 branches:
