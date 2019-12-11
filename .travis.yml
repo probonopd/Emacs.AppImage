@@ -18,7 +18,7 @@ script:
   - chmod +x ./appimagetool-*.AppImage
   - file appdir/usr/bin/emacs-*
   - ./appimagetool-*.AppImage -s deploy appdir/usr/share/applications/*.desktop
-  - rm appdir/AppRun ; cp ../AppRun ./appdir/ # Because we need some extra envs
+  - rm appdir/AppRun ; cp ../AppRun ./appdir/ ; chmod +x ./appdir/AppRun # Because we need some extra envs
   - sed -i -e 's|/usr|././|g' appdir/usr/bin/emacs-*
   - ( cd appdir/usr/bin/ ; rm emacs ; ln -s emacs-* emacs )
   - rm -rf appdir/usr/share/metainfo # FIXME; let it in once we can validate it
