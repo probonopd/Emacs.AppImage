@@ -17,7 +17,7 @@ script:
   - wget -c -nv https://github.com/$(wget -q https://github.com/probonopd/go-appimage/releases -O - | grep "appimagetool-.*-x86_64.AppImage" | head -n 1 | cut -d '"' -f 2)
   - chmod +x ./appimagetool-*.AppImage
   - file appdir/usr/bin/emacs-*
-  - ./appimagetool-*.AppImage deploy appdir/usr/share/applications/*.desktop
+  - ./appimagetool-*.AppImage -s deploy appdir/usr/share/applications/*.desktop
   - rm appdir/AppRun ; cp ../AppRun ./appdir/ # Because we need some extra envs
   - sed -i -e 's|/usr|././|g' appdir/usr/bin/emacs-*
   - ( cd appdir/usr/bin/ ; rm emacs ; ln -s emacs-* emacs )
