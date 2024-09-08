@@ -25,7 +25,7 @@ jobs:
 
       - name: Add deb-src to sources.list
         run: |
-          echo "deb-src http://archive.ubuntu.com/ubuntu focal main restricted" | sudo tee -a /etc/apt/sources.list
+          sudo sed -i -e 's|# deb-src|deb-src|g' /etc/apt/sources.list
           cat /etc/apt/sources.list
           sudo apt-get update
 
