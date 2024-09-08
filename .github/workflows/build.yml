@@ -21,7 +21,6 @@ jobs:
         run: |
           wget -c -q "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
           tar xf emacs-*tar.gz
-          cd emacs-*/
 
       - name: Add deb-src to sources.list
         run: |
@@ -36,14 +35,13 @@ jobs:
 
       - name: Configure and build Emacs
         run: |
+          cd emacs-*/
           ./autogen.sh
           ./configure --prefix=/app --without-selinux --with-x-toolkit=gtk3
           make -j$(nproc)
           sudo make install
           cd ..
-
-      - name: Create AppImage
-        run: bash -ex appimage.sh
+          bash -ex appimage.sh
 
       - name: Upload AppImage
         run: |
