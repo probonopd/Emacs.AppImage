@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ########################################################################
-# Package the binaries built on Travis-CI as an AppImage
-# By Simon Peter 2016
+# Package the binaries built on GitHub Actions as an AppImage
+# By Simon Peter 2016-24
 # For more information, see http://appimage.org/
 ########################################################################
 
@@ -30,6 +30,14 @@ sed -i -e 's|/app|././|g' $BINARY
 cp -r /app/* ./usr/
 BINARY=$(find ./usr/bin/ -name emacs*  -type f -executable | head -n 1)
 
+########################################################################
+# Gtk pixbuf loaders
+########################################################################
+
+cp /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders/* usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders/
+cp /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders.cache usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/
+sed -i -e 's|/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/||g' usr/lib/x86_64-linux-gnu/gdk-pixbuf-*/*/loaders.cache
+					
 ########################################################################
 # Copy desktop and icon file to AppDir for AppRun to pick them up
 ########################################################################
