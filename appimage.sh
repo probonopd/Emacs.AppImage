@@ -38,7 +38,7 @@ PIXBUFDIR=$(readlink -f /usr/lib/x86_64-linux-gnu/gdk-pixbuf-*/*/)
 RELPIXBUFDIR=${PIXBUFDIR:1}
 echo "PIXFUFDIR: $PIXBUFDIR"
 echo "RELPIXFUFDIR: $RELPIXBUFDIR"
-mkdir -p $RELPIXBUFDIR
+mkdir -p $RELPIXBUFDIR/loaders
 cp $PIXBUFDIR/loaders/* $RELPIXBUFDIR/loaders/
 cp $PIXBUFDIR/loaders.cache $RELPIXBUFDIR/
 sed -i -e 's|'$PIXBUFDIR'||g' $RELPIXBUFDIR/loaders.cache
