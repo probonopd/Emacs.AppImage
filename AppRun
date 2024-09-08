@@ -8,4 +8,6 @@ export EMACSDATA=$EMACSPATH/etc
 export EMACSDOC=$EMACSPATH/etc
 export EMACSLOADPATH=$EMACSPATH/site-lisp:$EMACSPATH/lisp:$EMACSPATH/lisp/emacs-lisp
 export INFOPATH=./local/share/info
+export GDK_PIXBUF_MODULEDIR=$(find "$HERE" -name loaders -type d -path '*gdk-pixbuf*')
+export GDK_PIXBUF_MODULE_FILE=$(find "$HERE" -name loaders.cache -type f -path '*gdk-pixbuf*') # Patched to contain no paths
 "${HERE}"/usr/bin/emacs "$@"
