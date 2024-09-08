@@ -21,7 +21,7 @@ jobs:
         run: |
           wget -c "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
           tar xf emacs-*tar.gz
-          cd emacs*
+          cd emacs-*/
 
       - name: Install dependencies
         run: |
