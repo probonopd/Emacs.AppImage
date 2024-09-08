@@ -23,9 +23,9 @@ jobs:
           tar xf emacs-*tar.gz
           cd emacs-*/
 
-      - name: Add deb-src lines to sources.list
+      - name: Add deb-src to sources.list
         run: |
-          sudo sed -i '/^deb http/s/$/ deb-src http/' /etc/apt/sources.list
+          echo "deb-src http://archive.ubuntu.com/ubuntu focal main restricted" | sudo tee -a /etc/apt/sources.list
           sudo apt-get update
 
       - name: Install dependencies
