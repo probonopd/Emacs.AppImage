@@ -23,6 +23,11 @@ jobs:
           tar xf emacs-*tar.gz
           cd emacs-*/
 
+      - name: Add deb-src lines to sources.list
+        run: |
+          sudo sed -i '/^deb http/s/$/ deb-src http/' /etc/apt/sources.list
+          sudo apt-get update
+
       - name: Install dependencies
         run: |
           sudo apt-get build-dep emacs24
