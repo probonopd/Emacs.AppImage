@@ -19,7 +19,7 @@ jobs:
 
       - name: Download and extract Emacs
         run: |
-          wget -c "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
+          wget -c -q "http://ftpmirror.gnu.org/emacs/emacs-${RELEASE_VERSION}.tar.gz"
           tar xf emacs-*tar.gz
           cd emacs-*/
 
@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get build-dep emacs
-          sudo apt-get -y install libgtk-3-dev libwebkitgtk-6.0-dev
+          sudo apt-get -y install libgtk-3-dev libwebkit2gtk-4.0-dev
 
       - name: Configure and build Emacs
         run: |
