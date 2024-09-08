@@ -34,9 +34,14 @@ BINARY=$(find ./usr/bin/ -name emacs*  -type f -executable | head -n 1)
 # Gtk pixbuf loaders
 ########################################################################
 
-cp /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders/* usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders/
-cp /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0//loaders.cache usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/
-sed -i -e 's|/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/||g' usr/lib/x86_64-linux-gnu/gdk-pixbuf-*/*/loaders.cache
+PIXBUFDIR=$(readlink -f /usr/lib/x86_64-linux-gnu/gdk-pixbuf-*/*/)
+RELPIXBUFDIR=${PIXBUFDIR:1}
+echo "PIXFUFDIR: $PIXBUFDIR"
+echo "RELPIXFUFDIR: $RELPIXBUFDIR"
+mkdir -p $RELPIXBUFDIR
+cp $PIXBUFDIR/loaders/* $RELPIXBUFDIR/loaders/
+cp $PIXBUFDIR/loaders.cache $RELPIXBUFDIR/
+sed -i -e 's|'$PIXBUFDIR'||g' $RELPIXBUFDIR/loaders.cache
 					
 ########################################################################
 # Copy desktop and icon file to AppDir for AppRun to pick them up
