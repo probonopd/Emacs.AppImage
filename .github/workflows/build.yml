@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get build-dep emacs
-          sudo apt-get -y install libgtk-3-dev libwebkitgtk-3.0-dev
+          sudo apt-get -y install libgtk-3-dev libwebkitgtk-6.0-dev
 
       - name: Configure and build Emacs
         run: |
